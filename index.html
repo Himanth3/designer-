@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Himanth Bammidi — Designer Portfolio</title>
+  <meta name="description" content="Portfolio of Himanth Bammidi — Photoshop & graphic designer. Download images and PSDs." />
+  <style>
+    :root{
+      --accent:#ff6b6b;
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.03);
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#071126 0%, #071831 60%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+
+    /* Header / Nav */
+    header{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .brand h1{font-size:18px;margin:0}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    /* Hamburger (mobile) */
+    .hamburger{display:none;border:0;background:transparent;color:var(--muted);font-size:22px}
+    @media (max-width:820px){
+      nav{display:none}
+      .hamburger{display:block}
+    }
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:center;padding:28px 0}
+    .hero-left h2{font-size:34px;margin:0 0 8px}
+    .hero-left p{color:var(--muted);margin:0 0 16px}
+    .cta{display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#ff9a6b);color:#071124;font-weight:700;text-decoration:none}
+    .hero-right{display:flex;justify-content:center}
+    .profile-card{background:var(--glass);padding:18px;border-radius:16px;backdrop-filter: blur(6px);box-shadow:0 8px 30px rgba(2,6,23,0.6);width:100%;max-width:360px}
+    .profile-photo{width:100%;height:320px;border-radius:12px;overflow:hidden}
+    .profile-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .about{padding-top:12px}
+    .meta{color:var(--muted);font-size:14px}
+
+    /* Portfolio */
+    section.portfolio{padding:28px 0}
+    .section-title{display:flex;align-items:center;justify-content:space-between}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(2,6,23,0.6);transition:transform .25s ease, box-shadow .25s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.7)}
+    .card img{width:100%;height:200px;object-fit:cover;display:block}
+    .card-body{padding:12px}
+    .card-body h3{margin:0 0 8px;font-size:16px}
+    .card-body p{margin:0 0 12px;color:var(--muted);font-size:14px}
+    .card-actions{display:flex;gap:8px}
+    .btn{flex:1;padding:8px 10px;border-radius:8px;border:0;font-weight:700;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .btn.primary{background:var(--accent);color:#071124}
+
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:620px){
+      .hero{grid-template-columns:1fr;}
+      .profile-photo{height:260px}
+      .grid{grid-template-columns:1fr}
+      .container{padding:18px}
+    }
+
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted);font-size:14px;text-align:center}
+
+    /* image modal */
+    .modal{position:fixed;inset:0;background:rgba(2,6,23,0.8);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .18s ease}
+    .modal.open{opacity:1;pointer-events:auto}
+    .modal img{max-width:90%;max-height:80%;border-radius:8px}
+
+    /* Contact Section */
+#contact{
+background:var(--card);
+padding:40px 20px;
+border-radius:16px;
+margin-top:30px;
+text-align:center;
+box-shadow:0 8px 30px rgba(2,6,23,0.6);
+}
+#contact h2{
+margin-bottom:20px;
+font-size:26px;
+color:var(--accent);
+}
+.contact-links{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+.contact-links a{
+text-decoration:none;
+color:#e6eef8;
+display:flex;
+align-items:center;
+gap:10px;
+font-size:18px;
+background:var(--glass);
+padding:12px 18px;
+border-radius:12px;
+transition:transform 0.2s, background 0.2s;
+}
+.contact-links a:hover{
+transform:translateY(-4px);
+background:rgba(255,255,255,0.08);
+}
+.contact-links i{
+font-size:20px;
+color:var(--accent);
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"><img src="my photo.jpeg" alt="Himanth photo" /></div>
+        <div>
+          <h1>Himanth Bammidi</h1>
+          <div style="color:var(--muted);font-size:13px;">Photoshop & Graphic Designer</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-left">
+          <h2>Hi — I'm Himanth.
+            <span style="display:block;color:var(--muted);font-size:16px;margin-top:8px">I create posters, thumbnails, ads and photo edits using Photoshop.</span>
+          </h2>
+          <p class="meta">This portfolio showcases selected projects — click any item to preview or download the image and the PSD file.</p>
+          <div style="margin-top:16px">
+            <a class="cta" href="#portfolio">See portfolio</a>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="profile-card">
+            <div class="profile-photo"><img src="../my photo.jpeg" alt="Your photo" /></div>
+            <div class="about">
+              <p><strong>About me</strong></p>
+              <p style="color:var(--muted);font-size:14px">I'm a dedicated Photoshop designer who loves turning ideas into eye-catching visuals. I specialise in movie posters, YouTube thumbnails, ad posters and wedding designs. I'm available for freelancing and collaborations.</p>
+              <div style="margin-top:10px;color:var(--muted);font-size:13px">Location: Mangalagiri, India • Open to work</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="portfolio" id="portfolio">
+        <div class="section-title">
+          <h2 style="margin:0">Selected works</h2>
+          <div style="color:var(--muted);font-size:14px">Click to preview — Download image or PSD</div>
+        </div>
+
+        <div class="grid" id="gallery">
+          <!-- Card template: replace file names with your actual files -->
+
+          <article class="card">
+            <img src="../Captain America.jpg" alt="Movie poster" loading="lazy" />
+            <div class="card-body">
+              <h3>Movie Poster — 'Captain America'</h3>
+              <p>fan-made Poster design .</p>
+              <div class="card-actions">
+                <button class="btn secondary" onclick="viewImage('Captain America.jpg')">Preview</button>
+                <a class="btn primary" href="./Captain America.jpg" download="Captain America.jpg">Download Image</a>
+                <a class="btn secondary" href="https://drive.google.com/file/d/1xpwIg-jN4_iyFtVUOOLqzXCy3q_LTdhq/view?usp=sharing" download="Captain America.psd">Download PSD</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="../tony doomsday.jpg" alt="Movie poster" loading="lazy" />
+            <div class="card-body">
+              <h3>Movie Poster — 'Doomsday'</h3>
+              <p>fan-made Poster design .</p>
+              <div class="card-actions">
+                <button class="btn secondary" onclick="viewImage('tony doomsday.jpg')">Preview</button>
+                <a class="btn primary" href="./tony doomsday.jpg" download="tony doomsday.jpg">Download Image</a>
+                <a class="btn secondary" href="https://drive.google.com/file/d/15Uhq5M762DgzVxUJ3o_IDyMpy7-PiPuH/view?usp=sharing" download="tony doomsday.psd">Download PSD</a>
+              </div>
+            </div>
+          </article>
+
+                   <article class="card">
+            <img src="../ben 10.jpg" alt="Movie poster" loading="lazy" />
+            <div class="card-body">
+              <h3>Movie Poster — 'ben 10'</h3>
+              <p>fan-made Poster design .</p>
+              <div class="card-actions">
+                <button class="btn secondary" onclick="viewImage('ben 10.jpg')">Preview</button>
+                <a class="btn primary" href="./ben 10.jpg" download="ben 10.jpg">Download Image</a>
+                <a class="btn secondary" href="https://drive.google.com/file/d/1_E_Y2zV-XOCuNjEV5qNQ5O4NwkUs75pC/view?usp=sharing" download="ben 10.psd">Download PSD</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="ghost house.jpg" alt="YouTube thumbnail" loading="lazy" />
+            <div class="card-body">
+              <h3>YT Thumbnail — 'ghost house'</h3>
+              <p>Thumbnail made for a Photoshop speed-edit video.</p>
+              <div class="card-actions">
+                <button class="btn secondary" onclick="viewImage('ghost house.jpg')">Preview</button>
+                <a class="btn primary" href="./ghost house.jpg" download="speed-edit-thumb.jpg">Download Image</a>
+                <a class="btn secondary" href="https://drive.google.com/file/d/10yNJRKeoUd9ynvcO4rm5vs9PRRT4WzJZ/view?usp=sharing" download="speed-edit.psd">Download PSD</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="thar.jpg" alt="YouTube thumbnail" loading="lazy" />
+            <div class="card-body">
+              <h3>ad — 'thar'</h3>
+              <p>ad made with Photoshop .</p>
+              <div class="card-actions">
+                <button class="btn secondary" onclick="viewImage('thar.jpg')">Preview</button>
+                <a class="btn primary" href="./thar.jpg" download="thar.jpg">Download Image</a>
+                <a class="btn secondary" href="https://drive.google.com/file/d/1G5Ms9Ayjg70a8RSwm-Xj7deZBGdcgmXa/view?usp=sharing" download="thar.psd">Download PSD</a>
+              </div>
+            </div>
+          </article>
+
+          
+
+          <!-- Add more cards as needed -->
+        </div>
+      </section>
+
+      <section id="about">
+        <h2>More about me</h2>
+        <p style="color:var(--muted)">I started designing in Photoshop in 2025. I enjoy composition, color grading, photo retouching and mockups. I can provide layered PSDs with organized groups and labeled layers for easy edits.</p>
+      </section>
+
+      <section id="contact">
+<h2>📬 Contact Me</h2>
+<div class="contact-links">
+<a ><i class="fas fa-envelope"></i>Email: himanth3114@gmail.com </a>
+<a href="https://www.instagram.com/h_desigens/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+<a href="https://www.linkedin.com/in/himanth2004/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+<a ><i class="fas fa-phone"></i>Call: 7978688049</a>
+</div>
+</section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Himanth Bammidi — All rights reserved</div>
+    </footer>
+  </div>
+
+  <!-- Image preview modal -->
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <img id="modalImg" src="" alt="Preview" />
+  </div>
+
+  <script>
+    // small helpers
+    function toggleMenu(){
+      const nav = document.querySelector('nav');
+      if(nav.style.display === 'flex') nav.style.display = '';
+      else nav.style.display = 'flex';
+    }
+
+    function viewImage(src){
+      const modal = document.getElementById('modal');
+      const img = document.getElementById('modalImg');
+      img.src = src;
+      modal.classList.add('open');
+    }
+    function closeModal(e){
+      if(e.target.id === 'modal' || e.target.id === 'modalImg'){
+        document.getElementById('modal').classList.remove('open');
+      }
+    }
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
